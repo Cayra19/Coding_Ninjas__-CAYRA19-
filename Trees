@@ -1,0 +1,71 @@
+Code : Print Level Wise
+Send Feedback
+Given a generic tree, print the input tree in level wise order. That is, print the elements at same level in one line (separated by space). Print different levels in differnet lines.
+Input format :
+Elements in level order form separated by space (as per done in class). Order is - 
+Root_data, n (No_Of_Child_Of_Root), n children, and so on for every element 
+Output Format :
+Level wise print
+Sample Input :
+10 3 20 30 40 2 40 50 0 0 0 0 
+Sample Output :
+10
+20 30 40 
+40 50
+
+
+
+
+
+import java.util.LinkedList;
+import java.util.Queue;
+  
+public class Solution {
+
+/*	TreeNode structure 
+ * 
+ * class TreeNode<T> {
+		T data;
+		ArrayList<TreeNode<T>> children;
+
+		TreeNode(T data){
+			this.data = data;
+			children = new ArrayList<TreeNode<T>>();
+		}
+	}*/
+	
+	
+	
+	public static void printLevelWise(TreeNode<Integer> root){
+		/* Your class should be named Solution 
+ 		 * Don't write main(). 
+		 * Don't read input, it is passed as function argument. 
+		 * Print output and don't return it. 
+		 * Taking input is handled automatically. 
+		 */
+        if(root==null) return;
+      Queue<TreeNode> q=new LinkedList<>();
+        //TreeNode<Integer>
+        q.add(root);
+        //q.add(null);
+         Queue<TreeNode> q1=new LinkedList<>();
+        while (q.size() > 0) {
+ // T curr;
+    //TreeNode<T> curr=new TreeNode<T>;
+          root=q.remove();
+            System.out.print(root.data+" ");
+            for(TreeNode child : root.children)
+            {
+                q1.add(child);
+            } 
+            if(q.size()==0)
+            {
+                q=q1;
+            q1=new LinkedList<>();
+            System.out.println();
+            }
+        }
+        
+	}
+		
+}
